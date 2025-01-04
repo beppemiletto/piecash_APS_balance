@@ -1,0 +1,10 @@
+click
+et-xmlfile
+openpyxl
+piecash
+pytz
+pytz-deprecation-shim
+SQLAlchemy
+SQLAlchemy-Utils
+tzdata
+tzlocal

@@ -1,0 +1,67 @@
+Entrate:Incassi,1,Sezione A - ENTRATE - 7
+Entrate:Fatture prestazioni,1,Sezione A - ENTRATE - 7
+Entrate:Tesseramento,1,Sezione A - ENTRATE - 1
+Entrate:Fatture Affitto,1,Sezione A - ENTRATE - 7
+Entrate:Contributi da Enti o Privati:Contributi da Enti Pubblici,1,Sezione A - ENTRATE - 8
+Entrate:Contributi da Enti o Privati:Contributi da soggetti privati,1,Sezione A - ENTRATE - 6
+Entrate:Contributi da Enti o Privati:Entrate Contratti Enti Pubblici,1,Sezione A - ENTRATE - 9
+Entrate:Contributi straordinari soci,1,Sezione A - ENTRATE - 4
+Entrate:Introiti distributori,1,Sezione E - ENTRATE - 2
+Entrate:Interessi bancari a credito,1,Sezione D - ENTRATE - 1
+Entrate:DidatticaEntrate:CorsoTeatroAdulti,1,Sezione A - ENTRATE - 2
+Entrate:DidatticaEntrate:CorsiEstemporaneiStages,1,Sezione A - ENTRATE - 2
+Entrate:DidatticaEntrate:CorsoTeatroRagazzi,1,Sezione A - ENTRATE - 2
+Entrate:DidatticaEntrate:CorsoDanza,1,Sezione A - ENTRATE - 2
+Entrate:DidatticaEntrate:corsoGinnastica,1,Sezione A - ENTRATE - 2
+Entrate:DidatticaEntrate:CorsoMusica,1,Sezione A - ENTRATE - 2
+Entrate:Entrata da pagamenti errati,1,Sezione A - ENTRATE - 10
+Attività:Cassa,1,Sezione Patrimonio - DARE - 1
+Attività:BANCA:BancaASTI,1,Sezione Patrimonio - DARE - 2
+Attività:BANCA:UNICREDIT,1,Sezione Patrimonio - DARE - 2
+Uscite:Telefonia,1,Sezione E - USCITE - 2
+Uscite:SIAE-Diritti,1,Sezione E - USCITE - 2
+Uscite:Tasse:IVA,1,Sezione E - USCITE - 5
+Uscite:Tasse:AgenziaEntrate,1,Sezione E - USCITE - 5
+Uscite:Tasse:Sanzioni amministrative,1,Sezione E - USCITE - 5
+Uscite:Tasse:TARI,1,Sezione E - USCITE - 5
+Uscite:Tasse:IVA non deducibile,1,Sezione E - USCITE - 5
+Uscite:Tasse:Imposta di bollo su rendiconto banca,1,Sezione E - USCITE - 5
+Uscite:Tasse:Spese registrazione Atti Marche da Bollo,1,Sezione E - USCITE - 5
+Uscite:Tasse:IRES e IRAP,1,Sezione E - USCITE - 5
+Uscite:Assicurazioni,1,Sezione E - USCITE - 2
+Uscite:UILT,1,Sezione A - USCITE - 2
+Uscite:Spese Spettacoli:Scenografie,1,Sezione A - USCITE - 1
+Uscite:Spese Spettacoli:Costumi,1,Sezione A - USCITE - 1
+Uscite:Spese Spettacoli:Trucco,1,Sezione A - USCITE - 1
+Uscite:Spese Spettacoli:Rimborsi compagnie ospiti,1,Sezione A - USCITE - 2
+Uscite:Spese Spettacoli:Locazione Servizi:Affitto sale prova,1,Sezione A - USCITE - 3
+Uscite:Spese Spettacoli:Locazione Servizi:Affitto furgoni,1,Sezione A - USCITE - 3
+Uscite:Spese Spettacoli:Locazione Servizi:Affitto costumi,1,Sezione A - USCITE - 3
+Uscite:Spese Spettacoli:Trovarobato,1,Sezione A - USCITE - 1
+Uscite:Spese Spettacoli:Consumabili,1,Sezione A - USCITE - 1
+Uscite:Spese Spettacoli:Riprese Video,1,Sezione E - USCITE - 2
+Uscite:Pubblicità,1,Sezione A - USCITE - 2
+Uscite:Apparecchiature:Audio,1,Sezione E - USCITE - 1
+Uscite:Apparecchiature:Luci,1,Sezione E - USCITE - 1
+Uscite:Apparecchiature:Apparecchiature generiche,1,Sezione E - USCITE - 1
+Uscite:Pulizie:Materiale,1,Sezione E - USCITE - 1
+Uscite:Pulizie:Personale,1,Sezione E - USCITE - 2
+Uscite:Pulizie:Attrezzature,1,Sezione E - USCITE - 1
+Uscite:Spese banca,1,Sezione D - USCITE - 1
+Uscite:Segreteria Gestione,1,Sezione E - USCITE - 2
+Uscite:Rimborso spese soci,1,Sezione A - USCITE - 5
+Uscite:Spese Varie:BevandeCibo,1,Sezione E - USCITE - 1
+Uscite:Cancelleria,1,Sezione E - USCITE - 1
+Uscite:Benemerenze verso soci,1,Sezione A - USCITE - 5
+Uscite:DidatticaUscite:PagamentoInsegnanti,1,Sezione A - USCITE - 2
+Uscite:DidatticaUscite:AltriCosti,1,Sezione A - USCITE - 5
+Uscite:DidatticaUscite:segreteria,1,Sezione E - USCITE - 2
+Uscite:Formazione Soci,1,Sezione A - USCITE - 2
+Uscite:Storno per pagamento elettronico errato,1,Sezione A - USCITE - 5
+Uscite:Uscite da pagamenti errati,1,Sezione A - USCITE - 5
+Uscite:manutenzioneLocali:Manutenzione Teatro,1,Sezione E - USCITE - 5
+Uscite:manutenzioneLocali:ManutenzioneScuola,1,Sezione E - USCITE - 5
+Uscite:EnergiaElettrica,1,Sezione A - USCITE - 2
+Uscite:Gas,1,Sezione A - USCITE - 2
+Uscite:LocazioneScuola,1,Sezione A - USCITE - 3
+Uscite:CONTABILITA  MANODOPERA,1,Sezione E - USCITE - 2

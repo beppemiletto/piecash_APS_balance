@@ -1,0 +1,148 @@
+Verifica,Tipo,Nome completo del conto,Nome del conto,Numero del conto,Descrizione,Colore del conto,Note,Simbolo,Spazio dei nomi,Nascosto,Informazioni sulle imposte,Segnaposto
+NA,BANK,Orfano-EUR,Orfano-EUR,"","","","",EUR,CURRENCY,F,F,F
+NA,BANK,Sbilancio-EUR,Sbilancio-EUR,"","","","",EUR,CURRENCY,F,F,F
+S,ASSET,Attività,Attività,A,Attività,#503eb704dfc6,"",EUR,CURRENCY,F,F,F
+S,ASSET,Attività:BANCA,BANCA,"",conti correnti,"","",EUR,CURRENCY,F,F,T
+OK,ASSET,Attività:BANCA:UNICREDIT,UNICREDIT,"","","","",EUR,CURRENCY,F,F,F
+OK,BANK,Attività:BANCA:BancaASTI,BancaASTI,A11,Conto Corrente CRA,"","",EUR,CURRENCY,F,F,F
+S,ASSET,Attività:Beni Cespiti,Beni Cespiti,"",Beni soggetti a deprezzamento,"","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:202405-SETFARI,202405-SETFARI,"",Fattura Thoman 74195340 del 13/05/2024,"","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:202405-SETFARI:Costo,Costo,"",SET FARI 2024,"","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:202405-SETFARI:Deprezzamento,Deprezzamento,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:202408_pavimenti_scuola,202408_pavimenti_scuola,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:202408_pavimenti_scuola:Costo,Costo,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:202408_pavimenti_scuola:Deprezzamento,Deprezzamento,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:2024MIXER2024Onyx,2024MIXER2024Onyx,"",Nuovo Mixer Audio Mackie Onyx 24,"","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:2024MIXER2024Onyx:Costo,Costo,"",MIXER2024Onyx,"","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:2024MIXER2024Onyx:Deprezzamento,Deprezzamento,"",MIXER2024Onyx,"","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:2024QuinteMOUT2024,2024QuinteMOUT2024,"",Acquisto quinte nuove 2024,"","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:2024QuinteMOUT2024:Costo,Costo,"",QuinteMOUT2024,"","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:2024QuinteMOUT2024:Deprezzamento,Deprezzamento,"",QuinteMOUT2024,"","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:3cameoFlood-2PCLED-20200304,3cameoFlood-2PCLED-20200304,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:3cameoFlood-2PCLED-20200304:Costo,Costo,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:3cameoFlood-2PCLED-20200304:Deprezzamento,Deprezzamento,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:8 Fari LED lotto 1,8 Fari LED lotto 1,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:8 Fari LED lotto 1:Costo,Costo,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:8 Fari LED lotto 1:Deprezzamento,Deprezzamento,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:8 Fari LED lotto 2,8 Fari LED lotto 2,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:8 Fari LED lotto 2:Costo,Costo,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:8 Fari LED lotto 2:Deprezzamento,Deprezzamento,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:Aspirapolvere Dyson BallMultifloor,Aspirapolvere Dyson BallMultifloor,"",Aspirapolvere acquistato da Trony il 25/02/2018 ,"","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:Aspirapolvere Dyson BallMultifloor:Costo,Costo,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:Aspirapolvere Dyson BallMultifloor:Deprezzamento,Deprezzamento,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:AttrezzatureAvvitatoriTrapani,AttrezzatureAvvitatoriTrapani,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:AttrezzatureAvvitatoriTrapani:Costo,Costo,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:AttrezzatureAvvitatoriTrapani:Deprezzamento,Deprezzamento,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:Computer ufficio ADJ,Computer ufficio ADJ,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:Computer ufficio ADJ:Costo,Costo,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:Computer ufficio ADJ:Deprezzamento,Deprezzamento,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:ELEMENTI TECNICI SCENOGRAFICI,ELEMENTI TECNICI SCENOGRAFICI,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:ELEMENTI TECNICI SCENOGRAFICI:Costo,Costo,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:ELEMENTI TECNICI SCENOGRAFICI:Deprezzamento,Deprezzamento,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:Fari 8 PC 1000 W,Fari 8 PC 1000 W,"",Fari PC 1000 W,"","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:Fari 8 PC 1000 W:Costo,Costo,"",Costo Fari PC 1000 W,"","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:Fari 8 PC 1000 W:Deprezzamento,Deprezzamento,"",Deprezzamento Fari PC 1000 W,"","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:Materiale Elettrico Impianto,Materiale Elettrico Impianto,"",Materiale elettrico manutenzione ordinaria,"","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:Materiale Elettrico Impianto:Costo,Costo,"",Materiale elettrico manutenzione ordinaria,"","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:Materiale Elettrico Impianto:Deprezzamento,Deprezzamento,"",Materiale elettrico manutenzione ordinaria,"","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:PA-DBX,PA-DBX,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:PA-DBX:Costo DBX PA,Costo DBX PA,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:PA-DBX:Deprezzamento DBX PA,Deprezzamento DBX PA,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:PassacaviSicurezza2023,PassacaviSicurezza2023,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:PassacaviSicurezza2023:Costo,Costo,"","","rgb(252,233,79)","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:PassacaviSicurezza2023:Deprezzamento,Deprezzamento,"","","rgb(138,226,52)","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:Rinnovo arredamento Teatro,Rinnovo arredamento Teatro,"",Materiali e beni per arredamento teatro,"","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:Rinnovo arredamento Teatro:Costo,Costo,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:Rinnovo arredamento Teatro:Deprezzamento,Deprezzamento,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:Sicurezza e manuten fari 20170929,Sicurezza e manuten fari 20170929,"",Immobilizzi investimenti per sicurezza e manutenzione impianti,"","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:Sicurezza e manuten fari 20170929:costo,costo,"","","","",EUR,CURRENCY,F,F,F
+,ASSET,Attività:Beni Cespiti:Sicurezza e manuten fari 20170929:Deprezzamento,Deprezzamento,"",Deprezzamento materiale sicurezza manut 20170929,"","",EUR,CURRENCY,F,F,F
+OK,CASH,Attività:Cassa,Cassa,A2,Cassa interna,#8bb8e130f28a,"",EUR,CURRENCY,F,F,F
+NA,ASSET,Attività:Crediti correnti,Crediti correnti,E3,Crediti verso debitori,#79b27c90fd88,"",EUR,CURRENCY,F,F,F
+S,EQUITY,Capitali,Capitali,C,"","","",EUR,CURRENCY,F,F,F
+NA,EQUITY,Capitali:Bilancio Apertura,Bilancio Apertura,"","",#9d33684a0000,"",EUR,CURRENCY,F,F,F
+S,INCOME,Entrate,Entrate,E,Entrate,"","",EUR,CURRENCY,F,F,F
+OK,INCOME,Entrate:Contributi straordinari soci,Contributi straordinari soci,"",Contributi straordinari da soci,#0a9549a81f50,"",EUR,CURRENCY,F,F,F
+S,INCOME,Entrate:DidatticaEntrate,DidatticaEntrate,"","","","",EUR,CURRENCY,F,F,T
+OK,INCOME,Entrate:DidatticaEntrate:CorsiEstemporaneiStages,CorsiEstemporaneiStages,"","","","",EUR,CURRENCY,F,F,F
+OK,INCOME,Entrate:DidatticaEntrate:CorsoDanza,CorsoDanza,"","","","",EUR,CURRENCY,F,F,F
+OK,INCOME,Entrate:DidatticaEntrate:corsoGinnastica,corsoGinnastica,"","","","",EUR,CURRENCY,F,F,F
+OK,INCOME,Entrate:DidatticaEntrate:CorsoMusica,CorsoMusica,"","","","",EUR,CURRENCY,F,F,F
+OK,INCOME,Entrate:DidatticaEntrate:CorsoTeatroAdulti,CorsoTeatroAdulti,"",Negozio Teatro via Lame,"","",EUR,CURRENCY,F,F,F
+OK,INCOME,Entrate:DidatticaEntrate:CorsoTeatroRagazzi,CorsoTeatroRagazzi,"",Negozio scuola via IV Novembre,"rgb(114,159,207)","",EUR,CURRENCY,F,F,F
+OK,INCOME,Entrate:Entrata da pagamenti errati,Entrata da pagamenti errati,"",Entrata straordinaria dovuta ad errori non riparabili nei pagamenti,"rgb(78,154,6)","",EUR,CURRENCY,F,F,F
+TBD,INCOME,Entrate:entrataStraordinariaFusione,entrataStraordinariaFusione,"","","","",EUR,CURRENCY,F,F,F
+OK,INCOME,Entrate:Interessi bancari a credito,Interessi bancari a credito,"","","","",EUR,CURRENCY,F,F,F
+OK,INCOME,Entrate:Introiti distributori,Introiti distributori,"",Introiti distributori caffè acqua,"","",EUR,CURRENCY,F,F,F
+OK,INCOME,Entrate:Incassi,Incassi,E1,Biglietteria,"rgb(171,250,174)","",EUR,CURRENCY,F,F,F
+OK,INCOME,Entrate:Fatture prestazioni,Fatture prestazioni,E2,Prestazioni spettacoli esterno Teatro,#a236dfd69c90,"",EUR,CURRENCY,F,F,F
+OK,INCOME,Entrate:Tesseramento,Tesseramento,E3,Incassi da tesseramento,#889aca868057,"",EUR,CURRENCY,F,F,F
+OK,INCOME,Entrate:Fatture Affitto,Fatture Affitto,E4,Incassi da Affitto del Teatro,#346cb5e61ae0,"",EUR,CURRENCY,F,F,F
+S,INCOME,Entrate:Contributi da Enti o Privati,Contributi da Enti o Privati,E5,Contributi Istituzionali,"rgb(32,148,68)","",EUR,CURRENCY,F,F,F
+OK,INCOME,Entrate:Contributi da Enti o Privati:Contributi da Enti Pubblici,Contributi da Enti Pubblici,"","","","",EUR,CURRENCY,F,F,F
+OK,INCOME,Entrate:Contributi da Enti o Privati:Contributi da soggetti privati,Contributi da soggetti privati,"",Pagamenti da altre comp. UILT - Contributi da Banche/Aziende,"","",EUR,CURRENCY,F,F,F
+OK,INCOME,Entrate:Contributi da Enti o Privati:Entrate Contratti Enti Pubblici,Entrate Contratti Enti Pubblici,"","","","",EUR,CURRENCY,F,F,F
+S,LIABILITY,Passività,Passività,P,Passività,#ffffd8f9b1f3,"",EUR,CURRENCY,F,F,F
+S,LIABILITY,Passività:Anticipi spese da soci,Anticipi spese da soci,"","","","",EUR,CURRENCY,F,F,F
+TBD,LIABILITY,Passività:Anticipi spese da soci:Domenino,Domenino,"","","","",EUR,CURRENCY,F,F,F
+TBD,LIABILITY,Passività:Anticipi spese da soci:ELISABETTA CANE,ELISABETTA CANE,"","","","",EUR,CURRENCY,F,F,F
+TBD,LIABILITY,Passività:Anticipi spese da soci:Miletto,Miletto,"","","","",EUR,CURRENCY,F,F,F
+TBD,LIABILITY,Passività:Anticipi spese da soci:Morello,Morello,"","","","",EUR,CURRENCY,F,F,F
+TBD,LIABILITY,Passività:Anticipi spese da soci:Russello,Russello,"","","","",EUR,CURRENCY,F,F,F
+S,EXPENSE,Uscite,Uscite,U,Uscite,#ffff578a5db9,"",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Benemerenze verso soci,Benemerenze verso soci,"",Benemerenze verso soci,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Cancelleria,Cancelleria,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:CONTABILITA  MANODOPERA,CONTABILITA  MANODOPERA,"","","","",EUR,CURRENCY,F,F,F
+NA,EXPENSE,Uscite:Deprezzamento,Deprezzamento,"",Deprezzamento di tutti i beni cespiti,"","",EUR,CURRENCY,F,F,F
+S,EXPENSE,Uscite:DidatticaUscite,DidatticaUscite,"","","","",EUR,CURRENCY,F,F,T
+OK,EXPENSE,Uscite:DidatticaUscite:AltriCosti,AltriCosti,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:DidatticaUscite:PagamentoInsegnanti,PagamentoInsegnanti,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:DidatticaUscite:segreteria,segreteria,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:EnergiaElettrica,EnergiaElettrica,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Formazione Soci,Formazione Soci,"",Corsi di formazione per soci,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Gas,Gas,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:LocazioneScuola,LocazioneScuola,"","","","",EUR,CURRENCY,F,F,F
+S,EXPENSE,Uscite:manutenzioneLocali,manutenzioneLocali,"","","","",EUR,CURRENCY,F,F,T
+OK,EXPENSE,Uscite:manutenzioneLocali:ManutenzioneScuola,ManutenzioneScuola,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:manutenzioneLocali:Manutenzione Teatro,Manutenzione Teatro,UA,Spese per la manutenzione del Teatro,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Rimborso spese soci,Rimborso spese soci,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Segreteria Gestione,Segreteria Gestione,"",Spese generali di segreteria e gestione compagnia e teatro,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Spese banca,Spese banca,"",Spese connesse alla gestione del CC,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Spese Varie,Spese Varie,"","Fiori, altri","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Spese Varie:BevandeCibo,BevandeCibo,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Storno per pagamento elettronico errato,Storno per pagamento elettronico errato,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Uscite da pagamenti errati,Uscite da pagamenti errati,"",Uscite straordinarie dovute ad errori non recuperabili nella gestioni dei pagamenti ,"rgb(239,41,41)","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Telefonia,Telefonia,U1,Spese per contratto telefonico,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:SIAE-Diritti,SIAE-Diritti,U2,Spese Copyright,"","",EUR,CURRENCY,F,F,F
+S,EXPENSE,Uscite:Tasse,Tasse,U3,Tasse,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Tasse:Imposta di bollo su rendiconto banca,Imposta di bollo su rendiconto banca,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Tasse:IRES e IRAP,IRES e IRAP,"",Imposte sul reddito,"rgb(252,175,62)","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Tasse:IVA non deducibile,IVA non deducibile,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Tasse:Sanzioni amministrative,Sanzioni amministrative,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Tasse:Spese registrazione Atti Marche da Bollo,Spese registrazione Atti Marche da Bollo,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Tasse:TARI,TARI,"",Pagamento TARI,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Tasse:IVA,IVA,U31,Versamenti IVA,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Tasse:AgenziaEntrate,AgenziaEntrate,U32,Altre tasse verso Stato,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Assicurazioni,Assicurazioni,U4,Assicurazioni RC Associazione,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:UILT,UILT,U5,Spese affiliazione e tessere,"","",EUR,CURRENCY,F,F,F
+S,EXPENSE,Uscite:Spese Spettacoli,Spese Spettacoli,U6,Spese dirette Spettacoli ,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Spese Spettacoli:Consumabili,Consumabili,"",Materiali e generi vari consumati durante lo spettacolo,"","",EUR,CURRENCY,F,F,F
+S,EXPENSE,Uscite:Spese Spettacoli:Locazione Servizi,Locazione Servizi,"","Affitti di sale, furgoni, costumi, attrezzature","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Spese Spettacoli:Locazione Servizi:Affitto costumi,Affitto costumi,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Spese Spettacoli:Locazione Servizi:Affitto furgoni,Affitto furgoni,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Spese Spettacoli:Locazione Servizi:Affitto sale prova,Affitto sale prova,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Spese Spettacoli:Rimborsi compagnie ospiti,Rimborsi compagnie ospiti,"",Rimborsi per prestazioni di compagnie ospiti,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Spese Spettacoli:Riprese Video,Riprese Video,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Spese Spettacoli:Trovarobato,Trovarobato,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Spese Spettacoli:Scenografie,Scenografie,U61,Spese per scenografie,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Spese Spettacoli:Costumi,Costumi,U62,Costumi,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Spese Spettacoli:Trucco,Trucco,U64,Spese per trucco di scena,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Pubblicità,Pubblicità,U7,Spese per pubblicità,"","",EUR,CURRENCY,F,F,F
+S,EXPENSE,Uscite:Apparecchiature,Apparecchiature,U8,Spese per apparati tecnici,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Apparecchiature:Apparecchiature generiche,Apparecchiature generiche,"","","","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Apparecchiature:Audio,Audio,U81,Spese per Audio,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Apparecchiature:Luci,Luci,U82,Spese per Luci,"","",EUR,CURRENCY,F,F,F
+S,EXPENSE,Uscite:Pulizie,Pulizie,U9,Spese per pulizie,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Pulizie:Materiale,Materiale,U91,Materiali per pulizie,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Pulizie:Personale,Personale,U92,Personale per pulizie,"","",EUR,CURRENCY,F,F,F
+OK,EXPENSE,Uscite:Pulizie:Attrezzature,Attrezzature,U93,Attrezzature per pulizie,"","",EUR,CURRENCY,F,F,F
