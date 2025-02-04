@@ -170,8 +170,10 @@ def main():
             bt.TABLE_BODY[sezione]['USCITE']['GT'] = {}
             bt.TABLE_BODY[sezione]['USCITE']['GT']['value_n'] = GTU_n
             bt.TABLE_BODY[sezione]['USCITE']['GT']['value_n_1'] = GTU_n_1
-            GTU_Balance_n += GTU_n
-            GTU_Balance_n_1 += GTU_n_1
+            # esclusione della sezione F dal totale GTU_Balance in quanto trattato successivamente a parte
+            if sezione in ['A', 'B', 'C', 'D', 'E']:
+                GTU_Balance_n += GTU_n
+                GTU_Balance_n_1 += GTU_n_1
             del totale_n, totale_n_1
 
             GTE_n = Decimal(0.00)
@@ -192,9 +194,11 @@ def main():
             bt.TABLE_BODY[sezione]['ENTRATE']['GT'] = {}
             bt.TABLE_BODY[sezione]['ENTRATE']['GT']['value_n'] = GTE_n
             bt.TABLE_BODY[sezione]['ENTRATE']['GT']['value_n_1'] = GTE_n_1
-            GTE_Balance_n += GTE_n
-            GTE_Balance_n_1 += GTE_n_1
-            del totale_n
+            # esclusione della sezione F dal totale GTE_Balance in quanto trattato successivamente a parte
+            if sezione in ['A', 'B', 'C', 'D', 'E']:
+                GTE_Balance_n += GTE_n
+                GTE_Balance_n_1 += GTE_n_1
+            del totale_n, totale_n_1
         if sezione in ['A', 'B', 'C', 'D']:
             surplus_section_n = GTE_n - GTU_n
             surplus_section_n_1 = GTE_n_1 - GTU_n_1
@@ -221,9 +225,15 @@ def main():
             csv_writer.writerow(row)
 
 
+    # ========================= RICERCA FLUSSI CASSA PER ATTIVITA' / PASSIVITA'
+    # Inizializzazione dei pattern di ricerca per modificare la contabilità gestionale in
+    #  semplificazione bilancio rendiconto per cassa
 
-    #Inizializzazione dei pattern di ricerca per modificare la contabilità gestionale in
-    #  semplificazione bilancio per cassa
+    # ================================================================================= CESPITI
+    # Costi per investimenti in cespiti:
+    # 1) estrazione costi acquisto che entrano nel bilancio rendiconto per cassa
+    # 2) flusso finanziario dei deprezzamenti - non usato nel bilancio rendiconto per cassa
+
     pattern_costo = re.compile(r'^Attività:Beni Cespiti:.+:[C|c]osto') # ricerca costi_cespiti_n allocati nell'anno
     pattern_depre = re.compile(r'^Uscite:[D|d]eprezzamento') # ricerca deprezzamenti costi_cespiti_n nell'anno
 
@@ -260,9 +270,11 @@ def main():
                 # print(reg_res)
                 if reg_res_costo is not None:
                     costi_cespiti_n += split.value
+
                 # print(reg_res)
                 elif reg_res_depre is not None:
                     depre_cespiti_n += split.value
+
 
     del bal_period_transactions
 
@@ -308,15 +320,109 @@ def main():
     bt.ASSETT['COSTO']['value_n_1'] = costi_cespiti_n_1
     bt.ASSETT['DEPREZZAMENTO']['value_n'] = depre_cespiti_n
     bt.ASSETT['DEPREZZAMENTO']['value_n_1'] = depre_cespiti_n_1
+    # duplicazione del valore nella sezione F utilizzata per stampare il foglio Excel
+    bt.TABLE_BODY['F']['USCITE'][1]['value_n'] = costi_cespiti_n
+    bt.TABLE_BODY['F']['USCITE'][1]['value_n_1'] = costi_cespiti_n_1
 
-    del costi_cespiti_n, depre_cespiti_n, reg_res_costo, reg_res_depre, bal_period_transactions
+    del costi_cespiti_n, depre_cespiti_n, reg_res_costo, reg_res_depre
     del counter_bal, counter_ovl, costi_cespiti_n_1, depre_cespiti_n_1
 
-    # Prestiti all'Associazione sotto forma di anticipi da parte dei soci
+    # Prestiti all'Associazione sotto forma di anticipi da parte dei soci e Restituzione di prestiti
+
+    # ====================================================================== PRESTITI E RESTITUZIONI
+    # RICERCA DI prestiti a LTC come anticipo spese o prestito non fruttifero:
+    # RICERCA DELLE TRANSAZIONI IN USCITA DAI CONTI PASSIVITA' COME RESITUZIONI
+
+    pattern_prestito = re.compile(r'^Passività:Anticipi spese da soci:.+')  # ricerca conti singoli soci allocati nell'anno
+
+    # Inizializzazione dei contatori overall e del periodo contabile specifico el bilancio
+    counter_ovl = 0
+    counter_bal = 0
+
+    # Inizializzazione del dictionary delle transazioni di competenza periodo di bilancio
+    bal_period_transactions = {}
+
+    # Ricerca delle transazioni del periodo di bilancio relative a entrate  da mettere in bilancio per cassa
+    # ma che non sarebbero di flusso di cassa (passitita) che vanno normalmente nello stato patrimoniale
+
+    # Entrate prestito soci nell'esercizio corrente n
+    prestiti_n = Decimal(0.00)
+    restituzione_n = Decimal(0.00)
+    for transaction in book.transactions:
+        counter_ovl += 1
+        post_date = transaction.post_date
+        # verifica che la data  post dello split sia inclusa nel periodo del bilancio
+        if post_date >= bal_period_begin_n and post_date <= bal_period_end_n:
+            counter_bal += 1
+            bal_period_transactions[str(counter_bal)] = {
+                'date': transaction.post_date,
+                'descr': transaction.description,
+                'splits': transaction.splits
+            }
+
+            for split in transaction.splits:
+                acc_book_fullname = split.account.fullname
+                # print(fullname)
+                reg_res_prestito = re.match(pattern_prestito, acc_book_fullname)
+                # print(reg_res)
+                if reg_res_prestito is not None:
+                    if split.value < 0:
+                        prestiti_n += abs(split.value)
+                    elif split.value > 0:
+                        restituzione_n += abs(split.value)
+
+
+
+    del bal_period_transactions
+
+    # Inizializzazione dei contatori overall e del periodo contabile specifico el bilancio
+    counter_ovl = 0
+    counter_bal = 0
+
+    # Inizializzazione del dictionary delle transazioni di competenza periodo di bilancio
+    bal_period_transactions = {}
+
+    # Prestiti e Restituzioni prestiti nell'esercizio precedente n-1
+    prestiti_n_1 = Decimal(0.00)
+    restituzione_n_1 = Decimal(0.00)
+    for transaction in book.transactions:
+        counter_ovl += 1
+        post_date = transaction.post_date
+        # verifica che la data  post dello split sia inclusa nel periodo del bilancio
+        if post_date >= bal_period_begin_n_1 and post_date <= bal_period_end_n_1:
+            counter_bal += 1
+            bal_period_transactions[str(counter_bal)] = {
+                'date': transaction.post_date,
+                'descr': transaction.description,
+                'splits': transaction.splits
+            }
+
+            for split in transaction.splits:
+                acc_book_fullname = split.account.fullname
+                # print(fullname)
+                reg_res_prestito = re.match(pattern_prestito, acc_book_fullname)
+                if reg_res_prestito is not None:
+                    if split.value < 0:
+                        prestiti_n_1 += abs(split.value)
+                    elif split.value > 0:
+                        restituzione_n_1 += abs(split.value)
+
+
+
+
     bt.ASSETT['PRESTITI']['value_n'] = avanzo_conti_periodo_n['Passività:Anticipi spese da soci'][0]
     bt.ASSETT['PRESTITI']['value_n_1'] = avanzo_conti_periodo_n_1['Passività:Anticipi spese da soci'][0]
     bt.ASSETT['TABLE']['ENTRATE'][4]['value_n'] = avanzo_conti_periodo_n['Passività:Anticipi spese da soci'][0]
     bt.ASSETT['TABLE']['ENTRATE'][4]['value_n_1'] = avanzo_conti_periodo_n_1['Passività:Anticipi spese da soci'][0]
+
+    # duplicazione del valore nella sezione F utilizzata per stampare il foglio Excel
+    bt.TABLE_BODY['F']['ENTRATE'][4]['value_n'] = prestiti_n
+    bt.TABLE_BODY['F']['ENTRATE'][4]['value_n_1'] = prestiti_n_1
+    bt.TABLE_BODY['F']['USCITE'][4]['value_n'] = restituzione_n
+    bt.TABLE_BODY['F']['USCITE'][4]['value_n_1'] = restituzione_n_1
+
+    del prestiti_n, prestiti_n_1, reg_res_prestito, bal_period_transactions
+    del counter_bal, counter_ovl, restituzione_n, restituzione_n_1
 
     # estrazione dei saldi Cassa e Banca
     cash = {}
@@ -1678,13 +1784,13 @@ def main():
         cella = etb.writeline(dataline=data_line, row_height=2, italic=True, wrap=True, fontsize=6, halign='left')
 
         # Sezione Cespiti Immobilizzazioni
-        # Sezione Cespiti Immobilizzazioni  - Header
+        # Sezione Cespiti Immobilizzazioni  - Header - detta anche sezione F per flussi di cassa
 
         data_line = [1, 58]
-        data = [bt.ASSETT['TABLE']['USCITE']['title']]
+        data = [bt.TABLE_BODY['F']['USCITE']['title']]
         data.append(bt.TABLE_HEADER[1].format(n=bal_period_end_n.year))
         data.append(bt.TABLE_HEADER[2].format(n_1=bal_period_end_n_1.year))
-        data.append(bt.ASSETT['TABLE']['ENTRATE']['title'])
+        data.append(bt.TABLE_BODY['F']['ENTRATE']['title'])
         data.append(bt.TABLE_HEADER[4].format(n=bal_period_end_n.year))
         data.append(bt.TABLE_HEADER[5].format(n_1=bal_period_end_n_1.year))
         data_line.append(data)
@@ -1698,15 +1804,15 @@ def main():
         if True:
             # Sezione Cespiti Immobilizzazioni  - Uscite - 1
             data_line = [1, 59]
-            data = [bt.ASSETT['TABLE']['USCITE'][1]['DESCRIPTION']]
+            data = [bt.TABLE_BODY['F']['USCITE'][1]['DESCRIPTION']]
             data_line.append(data)
             data_line.append(None)
             print(data_line)
             cella = etb.writeline(dataline=data_line, row_height=22, bold=False, wrap=True, fontsize=9, halign='left',
                                   border=True)
             data_line = [2, 59]
-            data = [bt.ASSETT['TABLE']['USCITE'][1]['value_n']]
-            data.append(bt.ASSETT['TABLE']['USCITE'][1]['value_n_1'])
+            data = [bt.TABLE_BODY['F']['USCITE'][1]['value_n']]
+            data.append(bt.TABLE_BODY['F']['USCITE'][1]['value_n_1'])
             data_line.append(data)
             data_line.append(None)
             print(data_line)
@@ -1715,15 +1821,15 @@ def main():
 
             # Sezione Cespiti Immobilizzazioni  - Uscite - 2
             data_line = [1, 60]
-            data = [bt.ASSETT['TABLE']['USCITE'][2]['DESCRIPTION']]
+            data = [bt.TABLE_BODY['F']['USCITE'][2]['DESCRIPTION']]
             data_line.append(data)
             data_line.append(None)
             print(data_line)
             cella = etb.writeline(dataline=data_line, row_height=22, bold=False, wrap=True, fontsize=9, halign='left',
                                   border=True)
             data_line = [2, 60]
-            data = [bt.ASSETT['TABLE']['USCITE'][2]['value_n']]
-            data.append(bt.ASSETT['TABLE']['USCITE'][2]['value_n_1'])
+            data = [bt.TABLE_BODY['F']['USCITE'][2]['value_n']]
+            data.append(bt.TABLE_BODY['F']['USCITE'][2]['value_n_1'])
             data_line.append(data)
             data_line.append(None)
             print(data_line)
@@ -1732,15 +1838,15 @@ def main():
 
             # Sezione Cespiti Immobilizzazioni  - Uscite - 3
             data_line = [1, 61]
-            data = [bt.ASSETT['TABLE']['USCITE'][3]['DESCRIPTION']]
+            data = [bt.TABLE_BODY['F']['USCITE'][3]['DESCRIPTION']]
             data_line.append(data)
             data_line.append(None)
             print(data_line)
             cella = etb.writeline(dataline=data_line, row_height=22, bold=False, wrap=True, fontsize=9, halign='left',
                                   border=True)
             data_line = [2, 61]
-            data = [bt.ASSETT['TABLE']['USCITE'][3]['value_n']]
-            data.append(bt.ASSETT['TABLE']['USCITE'][3]['value_n_1'])
+            data = [bt.TABLE_BODY['F']['USCITE'][3]['value_n']]
+            data.append(bt.TABLE_BODY['F']['USCITE'][3]['value_n_1'])
             data_line.append(data)
             data_line.append(None)
             print(data_line)
@@ -1749,15 +1855,15 @@ def main():
 
             # Sezione Cespiti Immobilizzazioni  - Uscite - 4
             data_line = [1, 62]
-            data = [bt.ASSETT['TABLE']['USCITE'][4]['DESCRIPTION']]
+            data = [bt.TABLE_BODY['F']['USCITE'][4]['DESCRIPTION']]
             data_line.append(data)
             data_line.append(None)
             print(data_line)
             cella = etb.writeline(dataline=data_line, row_height=22, bold=False, wrap=True, fontsize=9, halign='left',
                                   border=True)
             data_line = [2, 62]
-            data = [bt.ASSETT['TABLE']['USCITE'][4]['value_n']]
-            data.append(bt.ASSETT['TABLE']['USCITE'][4]['value_n_1'])
+            data = [bt.TABLE_BODY['F']['USCITE'][4]['value_n']]
+            data.append(bt.TABLE_BODY['F']['USCITE'][4]['value_n_1'])
             data_line.append(data)
             data_line.append(None)
             print(data_line)
@@ -1765,14 +1871,14 @@ def main():
                                   border=True)
 
             # Sezione Cespiti Immobilizzazioni  - Uscite - Totalizzatore
-            data_line = [1, 63]
+            data_line = [1, 64]
             data = ['Totale']
             data_line.append(data)
             data_line.append(None)
             print(data_line)
             cella = etb.writeline(dataline=data_line, row_height=22, bold=False, wrap=True, fontsize=9, halign='right',
                                   border=True)
-            data_line = [2, 63]
+            data_line = [2, 64]
             data = ['=SUM(B59:B62)']
             data.append('=SUM(C59:C62)')
             data_line.append(data)
@@ -1786,15 +1892,15 @@ def main():
         if True:
             # Sezione Cespiti Immobilizzazioni  - Entrate - 1
             data_line = [4, 59]
-            data = [bt.ASSETT['TABLE']['ENTRATE'][1]['DESCRIPTION']]
+            data = [bt.TABLE_BODY['F']['ENTRATE'][1]['DESCRIPTION']]
             data_line.append(data)
             data_line.append(None)
             print(data_line)
             cella = etb.writeline(dataline=data_line, row_height=22, bold=False, wrap=True, fontsize=9, halign='left',
                                   border=True)
             data_line = [5, 59]
-            data = [bt.ASSETT['TABLE']['ENTRATE'][1]['value_n']]
-            data.append(bt.ASSETT['TABLE']['ENTRATE'][1]['value_n_1'])
+            data = [bt.TABLE_BODY['F']['ENTRATE'][1]['value_n']]
+            data.append(bt.TABLE_BODY['F']['ENTRATE'][1]['value_n_1'])
             data_line.append(data)
             data_line.append(None)
             print(data_line)
@@ -1803,15 +1909,15 @@ def main():
 
             # Sezione Cespiti Immobilizzazioni  - Entrate - 2
             data_line = [4, 60]
-            data = [bt.ASSETT['TABLE']['ENTRATE'][2]['DESCRIPTION']]
+            data = [bt.TABLE_BODY['F']['ENTRATE'][2]['DESCRIPTION']]
             data_line.append(data)
             data_line.append(None)
             print(data_line)
             cella = etb.writeline(dataline=data_line, row_height=22, bold=False, wrap=True, fontsize=9, halign='left',
                                   border=True)
             data_line = [5, 60]
-            data = [bt.ASSETT['TABLE']['ENTRATE'][2]['value_n']]
-            data.append(bt.ASSETT['TABLE']['ENTRATE'][2]['value_n_1'])
+            data = [bt.TABLE_BODY['F']['ENTRATE'][2]['value_n']]
+            data.append(bt.TABLE_BODY['F']['ENTRATE'][2]['value_n_1'])
             data_line.append(data)
             data_line.append(None)
             print(data_line)
@@ -1820,15 +1926,15 @@ def main():
 
             # Sezione Cespiti Immobilizzazioni  - Entrate - 3
             data_line = [4, 61]
-            data = [bt.ASSETT['TABLE']['ENTRATE'][3]['DESCRIPTION']]
+            data = [bt.TABLE_BODY['F']['ENTRATE'][3]['DESCRIPTION']]
             data_line.append(data)
             data_line.append(None)
             print(data_line)
             cella = etb.writeline(dataline=data_line, row_height=22, bold=False, wrap=True, fontsize=9, halign='left',
                                   border=True)
             data_line = [5, 61]
-            data = [bt.ASSETT['TABLE']['ENTRATE'][3]['value_n']]
-            data.append(bt.ASSETT['TABLE']['ENTRATE'][3]['value_n_1'])
+            data = [bt.TABLE_BODY['F']['ENTRATE'][3]['value_n']]
+            data.append(bt.TABLE_BODY['F']['ENTRATE'][3]['value_n_1'])
             data_line.append(data)
             data_line.append(None)
             print(data_line)
@@ -1837,17 +1943,36 @@ def main():
 
             # Sezione Cespiti Immobilizzazioni  - Entrate - 4
             data_line = [4, 62]
-            data = [bt.ASSETT['TABLE']['ENTRATE'][4]['DESCRIPTION']]
+            data = [bt.TABLE_BODY['F']['ENTRATE'][4]['DESCRIPTION']]
             data_line.append(data)
             data_line.append(None)
             print(data_line)
             cella = etb.writeline(dataline=data_line, row_height=22, bold=False, wrap=True, fontsize=9, halign='left',
                                   border=True)
             data_line = [5, 62]
-            # data = [bt.ASSETT['TABLE']['ENTRATE'][4]['value_n']]
-            data = [Decimal(0.00)]
-            # data.append(bt.ASSETT['TABLE']['ENTRATE'][4]['value_n_1'])
-            data.append(Decimal(0.00))
+            data = [bt.TABLE_BODY['F']['ENTRATE'][4]['value_n']]
+            # data = [Decimal(0.00)]
+            data.append(bt.TABLE_BODY['F']['ENTRATE'][4]['value_n_1'])
+            # data.append(Decimal(0.00))
+            data_line.append(data)
+            data_line.append(None)
+            print(data_line)
+            cella = etb.writeline(dataline=data_line, row_height=21, bold=False, wrap=True, fontsize=9, halign='right',
+                                  border=True)
+
+            # Sezione Cespiti Immobilizzazioni  - Entrate - 5 Temporary solo 2024 per fusione
+            data_line = [4, 63]
+            data = [bt.TABLE_BODY['F']['ENTRATE'][5]['DESCRIPTION']]
+            data_line.append(data)
+            data_line.append(None)
+            print(data_line)
+            cella = etb.writeline(dataline=data_line, row_height=22, bold=False, wrap=True, fontsize=9, halign='left',
+                                  border=True)
+            data_line = [5, 63]
+            data = [bt.TABLE_BODY['F']['ENTRATE'][5]['value_n']]
+            # data = [Decimal(0.00)]
+            data.append(bt.TABLE_BODY['F']['ENTRATE'][5]['value_n_1'])
+            # data.append(Decimal(0.00))
             data_line.append(data)
             data_line.append(None)
             print(data_line)
@@ -1855,16 +1980,16 @@ def main():
                                   border=True)
 
             # Sezione Cespiti Immobilizzazioni  - Entrate - Totalizzatore
-            data_line = [4, 63]
+            data_line = [4, 64]
             data = ['Totale']
             data_line.append(data)
             data_line.append(None)
             print(data_line)
             cella = etb.writeline(dataline=data_line, row_height=22, bold=False, wrap=True, fontsize=9, halign='right',
                                   border=True)
-            data_line = [5, 63]
-            data = ['=SUM(E59:E62)']
-            data.append('=SUM(F59:F62)')
+            data_line = [5, 64]
+            data = ['=SUM(E59:E63)']
+            data.append('=SUM(F59:F63)')
             data_line.append(data)
             data_line.append(None)
             print(data_line)
@@ -1872,14 +1997,14 @@ def main():
                                   border=True)
 
             # Sezione Cespiti Immobilizzazioni  - Imposte
-            data_line = [4, 64]
+            data_line = [4, 65]
             data = ['Imposte']
             data_line.append(data)
             data_line.append(None)
             print(data_line)
             cella = etb.writeline(dataline=data_line, row_height=22, bold=False, wrap=True, fontsize=9, halign='right',
                                   border=True)
-            data_line = [5, 64]
+            data_line = [5, 65]
             data = [Decimal(0.00)]
             data.append(Decimal(0.00))
             data_line.append(data)
@@ -1889,16 +2014,16 @@ def main():
                                   border=True)
 
             # Sezione Cespiti Immobilizzazioni  - Avanzo Disavanzo Investimenti
-            data_line = [4, 65]
+            data_line = [4, 66]
             data = ['Avanzo/disavanzo da entrate e uscite per investimenti e disinvestimenti patrimoniali e finanziamenti']
             data_line.append(data)
             data_line.append(None)
             print(data_line)
             cella = etb.writeline(dataline=data_line, row_height=22, bold=False, wrap=True, fontsize=9, halign='right',
                                   border=True)
-            data_line = [5, 65]
-            data = ['= E63 - B63 - E64']
-            data.append('= F63 - C63 -F64')
+            data_line = [5, 66]
+            data = ['= E64 - B64 - E65']
+            data.append('= F64 - C64 -F65')
             data_line.append(data)
             data_line.append(None)
             print(data_line)
@@ -1906,8 +2031,8 @@ def main():
                                   border=True)
 
         # Page Blank small line
-        data_line = [1, 66, ["  "],6]
-        cella = etb.writeline(dataline=data_line, row_height=2, italic=True, wrap=True, fontsize=6, halign='left')
+        # data_line = [1, 66, ["  "],6]
+        # cella = etb.writeline(dataline=data_line, row_height=2, italic=True, wrap=True, fontsize=6, halign='left')
 
         # Quadro Finale Riassuntivo
         # Headings
@@ -1945,8 +2070,8 @@ def main():
         cella = etb.writeline(dataline=data_line, row_height=22, bold=False, wrap=True, fontsize=9, halign='left',
                               border=True)
         data_line = [5, 69]
-        data = ['= E65']
-        data.append('= F65')
+        data = ['= E66']
+        data.append('= F66')
         data_line.append(data)
         data_line.append(None)
         print(data_line)

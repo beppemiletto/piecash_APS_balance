@@ -15,6 +15,7 @@ Entrate:DidatticaEntrate:CorsoDanza,1,Sezione A - ENTRATE - 2
 Entrate:DidatticaEntrate:corsoGinnastica,1,Sezione A - ENTRATE - 2
 Entrate:DidatticaEntrate:CorsoMusica,1,Sezione A - ENTRATE - 2
 Entrate:Entrata da pagamenti errati,1,Sezione A - ENTRATE - 10
+Entrate:entrataStraordinariaFusione,1,Sezione F - ENTRATE - 5
 Attività:Cassa,1,Sezione Patrimonio - DARE - 1
 Attività:BANCA:BancaASTI,1,Sezione Patrimonio - DARE - 2
 Attività:BANCA:UNICREDIT,1,Sezione Patrimonio - DARE - 2
@@ -50,7 +51,6 @@ Uscite:Pulizie:Attrezzature,1,Sezione E - USCITE - 1
 Uscite:Spese banca,1,Sezione D - USCITE - 1
 Uscite:Segreteria Gestione,1,Sezione E - USCITE - 2
 Uscite:Rimborso spese soci,1,Sezione A - USCITE - 5
-Uscite:Spese Varie:BevandeCibo,1,Sezione E - USCITE - 1
 Uscite:Cancelleria,1,Sezione E - USCITE - 1
 Uscite:Benemerenze verso soci,1,Sezione A - USCITE - 5
 Uscite:DidatticaUscite:PagamentoInsegnanti,1,Sezione A - USCITE - 2

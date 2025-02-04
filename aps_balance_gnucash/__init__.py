@@ -65,6 +65,12 @@ class BalanceTable():
                                    'value_n': Decimal(0),
                                    'value_n_1': Decimal(0),
                                    'accounts': []
+                               },
+                               5: {
+                                   'DESCRIPTION': '5) Operazioni straordinarie',
+                                   'value_n': Decimal(0),
+                                   'value_n_1': Decimal(0),
+                                   'accounts': ['Entrate:entrataStraordinariaFusione']
                                }
 
                            },
@@ -423,8 +429,9 @@ class BalanceTable():
                                      'Uscite:Pulizie:Materiale',
                                      'Uscite:Pulizie:Attrezzature',
                                      'Uscite:Cancelleria',
-                                     'Uscite:Spese Varie',
-                                     'Uscite:Spese Varie:BevandeCibo']
+                                     'Uscite:Spese Varie'
+                                     # 'Uscite:Spese Varie:BevandeCibo'
+                                     ]
                     },
                     2: {
                         'DESCRIPTION': '2) Servizi ',
@@ -544,6 +551,12 @@ class BalanceTable():
                         'value_n': Decimal(0),
                         'value_n_1': Decimal(0),
                         'accounts': ['Passività:Anticipi spese da soci']
+                    },
+                    5: {
+                        'DESCRIPTION': '5) Operazioni straordinarie',
+                        'value_n': Decimal(0),
+                        'value_n_1': Decimal(0),
+                        'accounts': ['Entrate:entrataStraordinariaFusione']
                     },
                 }
 
